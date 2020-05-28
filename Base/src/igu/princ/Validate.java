@@ -5,7 +5,7 @@
  */
 package igu.princ;
 
-import igu.alertas.principal.ErrorAlert;
+import igu.util.alerts.ErrorAlert;
 
 /**
  *

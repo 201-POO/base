@@ -41,18 +41,18 @@ public class CompraData {
                 d.setId(rs.getInt("id"));
                 d.setFecha(rs.getDate("fecha"));
                 d.setCant_gr(rs.getDouble("cant_gr"));
-                d.setEssoles(rs.getInt("essoles"));
+                d.setEsdolares(rs.getInt("esdolares"));
                 d.setTipo_cambio(rs.getDouble("tipo_cambio"));
                 d.setPrecio_do(rs.getDouble("precio_do"));
                 d.setPrecio_so(rs.getDouble("precio_so"));
                 d.setTotal_do(rs.getDouble("total_do"));
                 d.setTotal_so(rs.getDouble("total_so"));
-                d.setTotal_do_entregado(rs.getDouble("total_do_entregado"));
-                d.setTotal_so_entregado(rs.getDouble("total_so_entregado"));
+                d.setSaldo_do_porpagar(rs.getDouble("saldo_do_porpagar"));
+                d.setSaldo_so_porpagar(rs.getDouble("saldo_so_porpagar"));
                 d.setUser(rs.getInt("user"));
                 d.setActivo(rs.getInt("activo"));
                 d.setDate_created(rs.getDate("date_created"));
-                d.setLast_update(rs.getDate("last_update"));
+                d.setLast_updated(rs.getDate("last_updated"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CompraData.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,9 +62,9 @@ public class CompraData {
 
     public static int registrar(Compra d) {
         int rsu = 0;
-        String sql = "INSERT INTO compra(fecha, cant_gr, essoles, tipo_cambio, precio_do,  "
-                + "precio_so, total_do, total_so, total_do_entregado, total_so_entregado, "
-                + "user, activo, date_created,last_update) "
+        String sql = "INSERT INTO compra(fecha, cant_gr, esdolares, tipo_cambio, precio_do,  "
+                + "precio_so, total_do, total_so, saldo_do_porpagar, saldo_so_porpagar, "
+                + "user, activo, date_created,last_updated) "
                 + "VALUES(?,?,?,?,?  ,?,?,?,?  ,?,?,?,?)";
         int i = 0;
         try {
@@ -72,14 +72,14 @@ public class CompraData {
             ps = cn.prepareStatement(sql);
             ps.setString(++i, fecha);
             ps.setDouble(++i, d.getCant_gr());
-            ps.setInt(++i, d.getEssoles());
+            ps.setInt(++i, d.getEsdolares());
             ps.setDouble(++i, d.getTipo_cambio());
             ps.setDouble(++i, d.getPrecio_do());
             ps.setDouble(++i, d.getPrecio_so());
             ps.setDouble(++i, d.getTotal_do());
             ps.setDouble(++i, d.getTotal_so());
-            ps.setDouble(++i, d.getTotal_do_entregado());
-            ps.setDouble(++i, d.getTotal_so_entregado());
+            ps.setDouble(++i, d.getSaldo_do_porpagar());
+            ps.setDouble(++i, d.getSaldo_so_porpagar());
             ps.setInt(++i, d.getUser());
             ps.setInt(++i, d.getActivo());
             ps.setString(++i, sdf.format(dt) );
@@ -98,17 +98,17 @@ public class CompraData {
         String sql = "UPDATE compra SET "
                 + "fecha=?, "
                 + "cant_gr=?, "
-                + "essoles=?, "
+                + "esdolares=?, "
                 + "tipo_cambio=?, "
                 + "precio_do=?, "
                 + "precio_so=?, "
                 + "total_do=?, "
                 + "total_so=?, "
-                + "total_do_entregado=?, "
-                + "total_so_entregado=?, "
+                + "saldo_do_porpagar=?, "
+                + "saldo_so_porpagar=?, "
                 + "user=?, "
                 + "activo=?, "
-                + "last_update=? "
+                + "last_updated=? "
                 + "WHERE id=?";
         int i = 0;
         try {
@@ -116,14 +116,14 @@ public class CompraData {
             ps = cn.prepareStatement(sql);
             ps.setString(++i, fecha);
             ps.setDouble(++i, d.getCant_gr());
-            ps.setInt(++i, d.getEssoles());
+            ps.setInt(++i, d.getEsdolares());
             ps.setDouble(++i, d.getTipo_cambio());
             ps.setDouble(++i, d.getPrecio_do());
             ps.setDouble(++i, d.getPrecio_so());
             ps.setDouble(++i, d.getTotal_do());
             ps.setDouble(++i, d.getTotal_so());
-            ps.setDouble(++i, d.getTotal_do_entregado());
-            ps.setDouble(++i, d.getTotal_so_entregado());
+            ps.setDouble(++i, d.getSaldo_do_porpagar());
+            ps.setDouble(++i, d.getSaldo_so_porpagar());
             ps.setInt(++i, d.getUser());
             ps.setInt(++i, d.getActivo());
             ps.setString(++i, sdf.format(dt) );
@@ -168,18 +168,18 @@ public class CompraData {
                 d.setId(rs.getInt("id"));
                 d.setFecha(rs.getDate("fecha"));
                 d.setCant_gr(rs.getDouble("cant_gr"));
-                d.setEssoles(rs.getInt("essoles"));
+                d.setEsdolares(rs.getInt("esdolares"));
                 d.setTipo_cambio(rs.getDouble("tipo_cambio"));
                 d.setPrecio_do(rs.getDouble("precio_do"));
                 d.setPrecio_so(rs.getDouble("precio_so"));
                 d.setTotal_do(rs.getDouble("total_do"));
                 d.setTotal_so(rs.getDouble("total_so"));
-                d.setTotal_do_entregado(rs.getDouble("total_do_entregado"));
-                d.setTotal_so_entregado(rs.getDouble("total_so_entregado"));
+                d.setSaldo_do_porpagar(rs.getDouble("saldo_do_porpagar"));
+                d.setSaldo_so_porpagar(rs.getDouble("saldo_so_porpagar"));
                 d.setUser(rs.getInt("user"));
                 d.setActivo(rs.getInt("activo"));
                 d.setDate_created(rs.getDate("date_created"));
-                d.setLast_update(rs.getDate("last_update"));
+                d.setLast_updated(rs.getDate("last_updated"));
                 ls.add(d);
             }
         } catch (SQLException ex) {

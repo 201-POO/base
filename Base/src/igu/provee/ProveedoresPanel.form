@@ -116,10 +116,11 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarFieldActionPerformed"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="buscarFieldKeyReleased"/>
               </Events>
             </Component>
-            <Component class="igu.buttons.ASIconButton" name="aSIconButton4">
+            <Component class="igu.util.buttons.ASIconButton" name="aSIconButton4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Excel"/>
                 <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -332,7 +333,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="igu.buttons.ASIconButton" name="nuevoButton">
+                <Component class="igu.util.buttons.ASIconButton" name="nuevoButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="NUEVO"/>
                     <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -349,7 +350,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nuevoButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="igu.buttons.ASIconButton" name="guardarButton">
+                <Component class="igu.util.buttons.ASIconButton" name="guardarButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="GUARDAR"/>
                     <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -366,7 +367,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="igu.buttons.ASIconButton" name="eliminarButton">
+                <Component class="igu.util.buttons.ASIconButton" name="eliminarButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ELIMINAR"/>
                     <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

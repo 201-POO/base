@@ -1,6 +1,6 @@
 package igu;
 
-import igu.alertas.principal.ErrorAlert;
+import igu.util.alerts.ErrorAlert;
 import igu.princ.MainFrame;
 import java.io.File;
 import java.util.logging.Level;

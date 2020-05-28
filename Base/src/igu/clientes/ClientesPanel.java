@@ -6,16 +6,16 @@
 package igu.clientes;
 
 import data.CienteData;
-import igu.tablas.ExportarExcel;
+import igu.util.tables.ExportarExcel;
 import entites.Cliente;
-import igu.alertas.principal.ConfirmDialog;
-import igu.alertas.principal.ErrorAlert;
-import igu.alertas.principal.SuccessAlert;
+import igu.util.alerts.ConfirmDialog;
+import igu.util.alerts.ErrorAlert;
+import igu.util.alerts.SuccessAlert;
 import javax.swing.ListSelectionModel;
 
-import igu.tablas.EstiloTablaHeader;
-import igu.tablas.EstiloTablaRenderer;
-import igu.tablas.MyScrollbarUI;
+import igu.util.tables.EstiloTablaHeader;
+import igu.util.tables.EstiloTablaRenderer;
+import igu.util.tables.MyScrollbarUI;
 import javax.swing.JFrame;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -119,7 +119,7 @@ public class ClientesPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         buscarField = new javax.swing.JTextField();
-        aSIconButton4 = new igu.buttons.ASIconButton();
+        aSIconButton4 = new igu.util.buttons.ASIconButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -127,9 +127,9 @@ public class ClientesPanel extends javax.swing.JPanel {
         tabla = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        nuevoButton = new igu.buttons.ASIconButton();
-        guardarButton = new igu.buttons.ASIconButton();
-        eliminarButton = new igu.buttons.ASIconButton();
+        nuevoButton = new igu.util.buttons.ASIconButton();
+        guardarButton = new igu.util.buttons.ASIconButton();
+        eliminarButton = new igu.util.buttons.ASIconButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         infoadic = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -500,10 +500,10 @@ public class ClientesPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private igu.buttons.ASIconButton aSIconButton4;
+    private igu.util.buttons.ASIconButton aSIconButton4;
     private javax.swing.JTextField buscarField;
-    private igu.buttons.ASIconButton eliminarButton;
-    private igu.buttons.ASIconButton guardarButton;
+    private igu.util.buttons.ASIconButton eliminarButton;
+    private igu.util.buttons.ASIconButton guardarButton;
     private javax.swing.JLabel id;
     private javax.swing.JTextArea infoadic;
     private javax.swing.JLabel jLabel1;
@@ -519,7 +519,7 @@ public class ClientesPanel extends javax.swing.JPanel {
     public static javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField nombres;
-    private igu.buttons.ASIconButton nuevoButton;
+    private igu.util.buttons.ASIconButton nuevoButton;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

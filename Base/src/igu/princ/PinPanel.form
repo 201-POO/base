@@ -57,7 +57,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="igu.buttons.ASIconButton" name="aSIconButton1">
+        <Component class="igu.util.buttons.ASIconButton" name="aSIconButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="PIN"/>
             <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

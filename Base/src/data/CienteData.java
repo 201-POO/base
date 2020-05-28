@@ -22,6 +22,7 @@ public class CienteData {
     static PreparedStatement ps;
 
     public static int registrar(Cliente d) {
+        //d.nombres = "Juan";
         int rsu = 0;
         String sql = "INSERT INTO cliente(nombres, infoadic) "
                 + "VALUES(?,?)";

@@ -28,7 +28,7 @@ public class PinPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        aSIconButton1 = new igu.buttons.ASIconButton();
+        aSIconButton1 = new igu.util.buttons.ASIconButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -82,7 +82,7 @@ public class PinPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private igu.buttons.ASIconButton aSIconButton1;
+    private igu.util.buttons.ASIconButton aSIconButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

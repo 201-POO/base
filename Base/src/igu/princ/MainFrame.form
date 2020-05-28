@@ -31,7 +31,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="718" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -105,7 +105,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="igu.buttons.ASIconButton" name="comprasButton">
+            <Component class="igu.util.buttons.ASIconButton" name="comprasButton">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="83" green="80" red="80" type="rgb"/>
@@ -141,7 +141,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comprasButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="igu.buttons.ASIconButton" name="ventasButton">
+            <Component class="igu.util.buttons.ASIconButton" name="ventasButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f4" green="ee" red="ef" type="rgb"/>
@@ -180,7 +180,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ventasButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="igu.buttons.ASIconButton" name="clientesButton">
+            <Component class="igu.util.buttons.ASIconButton" name="clientesButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f4" green="ee" red="ef" type="rgb"/>
@@ -219,7 +219,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clientesButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="igu.buttons.ASIconButton" name="ventaButton2">
+            <Component class="igu.util.buttons.ASIconButton" name="ventaButton2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f4" green="ee" red="ef" type="rgb"/>
@@ -258,7 +258,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ventaButton2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="igu.buttons.ASIconButton" name="proveeButton">
+            <Component class="igu.util.buttons.ASIconButton" name="proveeButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f4" green="ee" red="ef" type="rgb"/>
@@ -319,7 +319,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="1" pref="546" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" pref="635" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

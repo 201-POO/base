@@ -4,3 +4,5 @@ Paso 3. Mover a otra carpeta
 Paso 4. Hacer Refactor, Rename con el nuevo nombre
 
 H:\De CDs\CD03 CrusosAl2010\2 Cursos\20091-LP1
+
+electronica@ciplima.org.pe

@@ -18,18 +18,18 @@ public class Compra {
     private int prove_id;
     private String prove_nom;
     private double cant_gr;
-    private int essoles;
+    private int esdolares;
     private double tipo_cambio;
     private double precio_do;
     private double precio_so;
     private double total_do;
     private double total_so;
-    private double total_do_entregado;
-    private double total_so_entregado;
+    private double saldo_do_porpagar;
+    private double saldo_so_porpagar;
     private int user;
     private int activo;
     private Date date_created;
-    private Date last_update;
+    private Date last_updated;
 
     public int getId() {
         return id;
@@ -71,12 +71,12 @@ public class Compra {
         this.cant_gr = cant_gr;
     }
 
-    public int getEssoles() {
-        return essoles;
+    public int getEsdolares() {
+        return esdolares;
     }
 
-    public void setEssoles(int essoles) {
-        this.essoles = essoles;
+    public void setEsdolares(int esdolares) {
+        this.esdolares = esdolares;
     }
 
     public double getTipo_cambio() {
@@ -119,20 +119,20 @@ public class Compra {
         this.total_so = total_so;
     }
 
-    public double getTotal_do_entregado() {
-        return total_do_entregado;
+    public double getSaldo_do_porpagar() {
+        return saldo_do_porpagar;
     }
 
-    public void setTotal_do_entregado(double total_do_entregado) {
-        this.total_do_entregado = total_do_entregado;
+    public void setSaldo_do_porpagar(double saldo_do_porpagar) {
+        this.saldo_do_porpagar = saldo_do_porpagar;
     }
 
-    public double getTotal_so_entregado() {
-        return total_so_entregado;
+    public double getSaldo_so_porpagar() {
+        return saldo_so_porpagar;
     }
 
-    public void setTotal_so_entregado(double total_so_entregado) {
-        this.total_so_entregado = total_so_entregado;
+    public void setSaldo_so_porpagar(double saldo_so_porpagar) {
+        this.saldo_so_porpagar = saldo_so_porpagar;
     }
 
     public int getUser() {
@@ -159,11 +159,13 @@ public class Compra {
         this.date_created = date_created;
     }
 
-    public Date getLast_update() {
-        return last_update;
+    public Date getLast_updated() {
+        return last_updated;
     }
 
-    public void setLast_update(Date last_update) {
-        this.last_update = last_update;
+    public void setLast_updated(Date last_updated) {
+        this.last_updated = last_updated;
     }
+
+   
 }

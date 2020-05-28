@@ -55,11 +55,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        comprasButton = new igu.buttons.ASIconButton();
-        ventasButton = new igu.buttons.ASIconButton();
-        clientesButton = new igu.buttons.ASIconButton();
-        ventaButton2 = new igu.buttons.ASIconButton();
-        proveeButton = new igu.buttons.ASIconButton();
+        comprasButton = new igu.util.buttons.ASIconButton();
+        ventasButton = new igu.util.buttons.ASIconButton();
+        clientesButton = new igu.util.buttons.ASIconButton();
+        ventaButton2 = new igu.util.buttons.ASIconButton();
+        proveeButton = new igu.util.buttons.ASIconButton();
         pnlCentro = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnlPrincipal = new javax.swing.JPanel();
@@ -188,7 +188,6 @@ public class MainFrame extends javax.swing.JFrame {
         proveeButton.setForeground(new java.awt.Color(128, 128, 131));
         proveeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/igu/imgs/img/collection.png"))); // NOI18N
         proveeButton.setText("PROVEEDORES");
-        proveeButton.setActionCommand("PROVEEDORES");
         proveeButton.setColorHover(new java.awt.Color(204, 204, 204));
         proveeButton.setColorNormal(new java.awt.Color(239, 238, 244));
         proveeButton.setColorPressed(new java.awt.Color(204, 204, 204));
@@ -264,7 +263,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         pnlCentroLayout.setVerticalGroup(
             pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -283,7 +282,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
         );
 
         pack();
@@ -467,15 +466,15 @@ public class MainFrame extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private igu.buttons.ASIconButton clientesButton;
-    private igu.buttons.ASIconButton comprasButton;
+    private igu.util.buttons.ASIconButton clientesButton;
+    private igu.util.buttons.ASIconButton comprasButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlPrincipal;
-    private igu.buttons.ASIconButton proveeButton;
-    private igu.buttons.ASIconButton ventaButton2;
-    private igu.buttons.ASIconButton ventasButton;
+    private igu.util.buttons.ASIconButton proveeButton;
+    private igu.util.buttons.ASIconButton ventaButton2;
+    private igu.util.buttons.ASIconButton ventasButton;
     // End of variables declaration//GEN-END:variables
 }
