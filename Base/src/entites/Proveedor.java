@@ -11,6 +11,7 @@ public class Proveedor {
     private int id;
     private String nombres;
     private String infoadic;
+    // temp para practicar
     private Date fecha_nac;
     private Date date_created;
     private Date last_updated;

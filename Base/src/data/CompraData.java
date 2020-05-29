@@ -40,6 +40,8 @@ public class CompraData {
             while (rs.next()) {
                 d.setId(rs.getInt("id"));
                 d.setFecha(rs.getDate("fecha"));
+                d.setProve_id(rs.getInt("prove_id"));
+                d.setProve_nom(rs.getString("prove_nom"));
                 d.setCant_gr(rs.getDouble("cant_gr"));
                 d.setEsdolares(rs.getInt("esdolares"));
                 d.setTipo_cambio(rs.getDouble("tipo_cambio"));
@@ -62,15 +64,18 @@ public class CompraData {
 
     public static int registrar(Compra d) {
         int rsu = 0;
-        String sql = "INSERT INTO compra(fecha, cant_gr, esdolares, tipo_cambio, precio_do,  "
-                + "precio_so, total_do, total_so, saldo_do_porpagar, saldo_so_porpagar, "
-                + "user, activo, date_created,last_updated) "
-                + "VALUES(?,?,?,?,?  ,?,?,?,?  ,?,?,?,?)";
+        String sql = "INSERT INTO compra(fecha,  prove_id, prove_nom, cant_gr, esdolares, "
+                +"tipo_cambio, precio_do, precio_so, total_do, total_so, "
+                + "saldo_do_porpagar, saldo_so_porpagar, user, activo "
+                + ") "
+                + "VALUES(?,?,?,?,?  ,?,?,?,?,?  ,?,?,?,?)";
         int i = 0;
         try {
             String fecha = sdf.format(d.getFecha());
             ps = cn.prepareStatement(sql);
             ps.setString(++i, fecha);
+            ps.setInt(++i, d.getProve_id());
+            ps.setString(++i, d.getProve_nom());
             ps.setDouble(++i, d.getCant_gr());
             ps.setInt(++i, d.getEsdolares());
             ps.setDouble(++i, d.getTipo_cambio());
@@ -81,11 +86,7 @@ public class CompraData {
             ps.setDouble(++i, d.getSaldo_do_porpagar());
             ps.setDouble(++i, d.getSaldo_so_porpagar());
             ps.setInt(++i, d.getUser());
-            ps.setInt(++i, d.getActivo());
-            ps.setString(++i, sdf.format(dt) );
-            ps.setString(++i, sdf.format(dt) );
-
-            //ps.setDouble(++i, Math.round(pre_do * 100.0) / 100.0);
+            ps.setInt(++i, 1);
             rsu = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CompraData.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,6 +98,8 @@ public class CompraData {
         int rsu = 0;
         String sql = "UPDATE compra SET "
                 + "fecha=?, "
+                + "prove_id=?, "
+                + "prove_nom=?, "
                 + "cant_gr=?, "
                 + "esdolares=?, "
                 + "tipo_cambio=?, "
@@ -115,6 +118,8 @@ public class CompraData {
             String fecha = sdf.format(d.getFecha());
             ps = cn.prepareStatement(sql);
             ps.setString(++i, fecha);
+            ps.setInt(++i, d.getProve_id());
+            ps.setString(++i, d.getProve_nom());
             ps.setDouble(++i, d.getCant_gr());
             ps.setInt(++i, d.getEsdolares());
             ps.setDouble(++i, d.getTipo_cambio());
@@ -127,7 +132,6 @@ public class CompraData {
             ps.setInt(++i, d.getUser());
             ps.setInt(++i, d.getActivo());
             ps.setString(++i, sdf.format(dt) );
-            //ps.setDouble(++i, Math.round(pre_do * d.getTcambio() * 100.0) / 100.0);
             ps.setInt(++i, d.getId());
             rsu = ps.executeUpdate();
         } catch (SQLException ex) {
@@ -167,6 +171,8 @@ public class CompraData {
                 Compra d = new Compra();
                 d.setId(rs.getInt("id"));
                 d.setFecha(rs.getDate("fecha"));
+                d.setProve_id(rs.getInt("prove_id"));
+                d.setProve_nom(rs.getString("prove_nom"));
                 d.setCant_gr(rs.getDouble("cant_gr"));
                 d.setEsdolares(rs.getInt("esdolares"));
                 d.setTipo_cambio(rs.getDouble("tipo_cambio"));

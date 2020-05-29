@@ -10,37 +10,29 @@ import data.ParametroData;
 import data.ProveedorData;
 import entites.Compra;
 import entites.Parametro;
+import java.io.IOException;
 import igu.util.tables.ExportarExcel;
 import entites.Proveedor;
 import igu.util.alerts.ConfirmDialog;
 import igu.util.alerts.ErrorAlert;
 import igu.util.alerts.SuccessAlert;
-import igu.provee.ProveedoresPanel;
-import javax.swing.ListSelectionModel;
-
 import igu.util.tables.EstiloTablaHeader;
 import igu.util.tables.EstiloTablaRenderer;
 import igu.util.tables.MyScrollbarUI;
 import igu.util.Config;
+import javax.swing.ListSelectionModel;
 import javax.swing.JFrame;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.DefaultListModel;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.io.IOException;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JFormattedTextField;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -59,22 +51,16 @@ public class ComprasPanel extends javax.swing.JPanel {
         initComponents();
 
         paintParams(1);
-
-        //total.setText(new DecimalFormat(Config.DEFAULT_DECIMAL_STRING_FORMAT).format(10000000.636));
-        //double x =Double.parseDouble( new DecimalFormat("#######").format(10000 ) ) ;
-        //total.setText(x+"");
-        // set their value classes
         Date date_i = new Date();
         fecha.setText(iguSDF.format(date_i));
-
         nombres.requestFocus();
-        pid.setText("");
+        prove_id.setText("");
         myJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         myJList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
                 if (myJList.getSelectedIndex() != -1) {
                     nombres.setText(myJList.getSelectedValue());
-                    pid.setText(defaultListModel.getElementAt(myJList.getSelectedIndex()).getId() + "");
+                    prove_id.setText(defaultListModel.getElementAt(myJList.getSelectedIndex()).getId() + "");
                 } else {
                     System.out.println("Sin resultados");
                 }
@@ -82,14 +68,14 @@ public class ComprasPanel extends javax.swing.JPanel {
         });
         paintList("");
 
-        this.tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
-        this.tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
+        tabla.getTableHeader().setDefaultRenderer(new EstiloTablaHeader());
+        tabla.setDefaultRenderer(Object.class, new EstiloTablaRenderer());
 
         jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.getVerticalScrollBar().setUI(new MyScrollbarUI());
         jScrollPane1.getHorizontalScrollBar().setUI(new MyScrollbarUI());
 
-        this.id.setText("");
+        id.setText("");
         paintTable("");
 
         tabla.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -170,9 +156,9 @@ public class ComprasPanel extends javax.swing.JPanel {
     }
 
     private void limpiarCampos() {
-        this.nombres.requestFocus();
-        this.nombres.setText("");
-        this.cant_gr.setText("");
+        nombres.requestFocus();
+        nombres.setText("");
+        cant_gr.setText("");
         paintTable("");
 
     }
@@ -228,7 +214,7 @@ public class ComprasPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         pagar_dolares = new javax.swing.JRadioButton();
         pagar_soles = new javax.swing.JRadioButton();
-        pid = new javax.swing.JLabel();
+        prove_id = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         myJList = new javax.swing.JList<>();
         jLabel9 = new javax.swing.JLabel();
@@ -570,6 +556,11 @@ public class ComprasPanel extends javax.swing.JPanel {
 
         fecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         fecha.setToolTipText("");
+        fecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fechaKeyReleased(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -602,8 +593,8 @@ public class ComprasPanel extends javax.swing.JPanel {
             }
         });
 
-        pid.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        pid.setText("pid");
+        prove_id.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        prove_id.setText("prove_id");
 
         myJList.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         myJList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -717,7 +708,7 @@ public class ComprasPanel extends javax.swing.JPanel {
                         .addGap(14, 14, 14))))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(pid)
+                .addComponent(prove_id)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -731,7 +722,7 @@ public class ComprasPanel extends javax.swing.JPanel {
                         .addComponent(eliminarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(guardarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
-                .addComponent(pid, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prove_id, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -828,15 +819,15 @@ public class ComprasPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
-        if (this.tabla.getRowCount() < 1) {
+        if (tabla.getRowCount() < 1) {
             ErrorAlert er = new ErrorAlert(new JFrame(), true);
             er.titulo.setText("OOPS...");
             er.msj.setText("LA TABLA ESTA VACÍA");
             er.msj1.setText("");
             er.setVisible(true);
         } else {
-            System.out.println("id: " + this.id.getText());
-            if (this.id.getText().equals("")) {
+            System.out.println("id: " + id.getText());
+            if (id.getText().equals("")) {
                 ErrorAlert er = new ErrorAlert(new JFrame(), true);
                 er.titulo.setText("OOPS...");
                 er.msj.setText("SELECCIONA UN");
@@ -850,13 +841,13 @@ public class ComprasPanel extends javax.swing.JPanel {
                 cd.msj1.setText("");
                 cd.setVisible(true);
                 if (cd.YES_OPTION) {
-                    int opcion = CompraData.eliminar(Integer.parseInt(this.id.getText()));
+                    int opcion = CompraData.eliminar(Integer.parseInt(id.getText()));
                     if (opcion != 0) {
                         limpiarCampos();
-                        this.id.setText("");
-                        this.nombres.setText("");
-                        this.cant_gr.setText("");
-                        this.guardarButton.setText("REGISTRAR");
+                        id.setText("");
+                        nombres.setText("");
+                        cant_gr.setText("");
+                        guardarButton.setText("REGISTRAR");
                     }
                 }
             }
@@ -867,17 +858,21 @@ public class ComprasPanel extends javax.swing.JPanel {
     private void nuevoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoButtonActionPerformed
         // TODO add your handling code here:
         //this.tituloLabel.setText("REGISTRAR");
-        this.guardarButton.setText("REGISTRAR");
-        this.id.setText("");
-        this.nombres.setText("");
-        this.cant_gr.setText("");
-        this.nombres.requestFocus();
+        guardarButton.setText("REGISTRAR");
+        id.setText("");
+        nombres.setText("");
+        cant_gr.setText("");
+        nombres.requestFocus();
+        prove_id.setText("");
+           saldo_porpagar.setText("");
+
 
     }//GEN-LAST:event_nuevoButtonActionPerformed
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
 
-        if (this.nombres.getText().equals("") || this.pid.getText().equals("")) {
+        if (nombres.getText().equals("") || prove_id.getText().equals("")  || cant_gr.getText().equals("") 
+                  || total.getText().equals("")) {
             ErrorAlert er = new ErrorAlert(new JFrame(), true);
             er.titulo.setText("OOPS...");
             er.msj.setText("FALTAN CAMPOS DE LLENAR");
@@ -886,16 +881,16 @@ public class ComprasPanel extends javax.swing.JPanel {
 
         } else {
 
-            System.out.println("id: " + this.id.getText());
+            System.out.println("id: " + id.getText());
             Compra s = new Compra();
 
-            s.setProve_id(Integer.parseInt(this.pid.getText()));
-            s.setProve_nom(this.nombres.getText());
-            s.setCant_gr(Double.parseDouble(this.cant_gr.getText()));
+            s.setProve_id(Integer.parseInt(prove_id.getText()));
+            s.setProve_nom(nombres.getText());
+            s.setCant_gr(Double.parseDouble(cant_gr.getText()));
 
             Date date = new Date();
-            String test = this.fecha.getText(); //"02/03/2020";
-            System.out.println("panel.fecha.test: " + test);
+            String test = fecha.getText(); //"02/03/2020";
+            System.out.println("panel.fecha: " + test);
             iguSDF.setLenient(false);
             try {
                 date = iguSDF.parse(test);
@@ -912,7 +907,7 @@ public class ComprasPanel extends javax.swing.JPanel {
             }
             s.setFecha(date);
 
-            if (this.id.getText().equals("")) {
+            if (id.getText().equals("")) {
                 int opcion = CompraData.registrar(s);
                 if (opcion != 0) {
                     limpiarCampos();
@@ -923,7 +918,7 @@ public class ComprasPanel extends javax.swing.JPanel {
                     sa.setVisible(true);
                 }
             } else {
-                s.setId(Integer.parseInt(this.id.getText()));
+                s.setId(Integer.parseInt(id.getText()));
                 int opcion = CompraData.actualizar(s);
                 if (opcion != 0) {
                     limpiarCampos();
@@ -934,7 +929,6 @@ public class ComprasPanel extends javax.swing.JPanel {
                     sa.setVisible(true);
                 }
             }
-
         }
     }//GEN-LAST:event_guardarButtonActionPerformed
 
@@ -943,14 +937,13 @@ public class ComprasPanel extends javax.swing.JPanel {
             obj = new ExportarExcel();
             obj.exportarExcel(tabla);
         } catch (IOException ex) {
-            Logger.getLogger(ProveedoresPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComprasPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_aSIconButton4ActionPerformed
 
     private void buscarFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarFieldKeyReleased
         // TODO add your handling code here:
-        //Opciones.listar(this.buscarField.getText());
-        paintTable(this.buscarField.getText());
+        paintTable(buscarField.getText());
     }//GEN-LAST:event_buscarFieldKeyReleased
 
     private void pagar_dolaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagar_dolaresActionPerformed
@@ -964,7 +957,7 @@ public class ComprasPanel extends javax.swing.JPanel {
             er.msj.setText("FALTAN LLENAR CANTIDAD EN GRAMOS");
             er.msj1.setText("");
             er.setVisible(true);
-            this.cant_gr.requestFocus();
+            cant_gr.requestFocus();
         } else {
             try {
                 double totalx = Math.round(Double.parseDouble(precio_do.getText()) * Double.parseDouble(cant_gr.getText()) * 100.0) / 100.0;
@@ -986,7 +979,7 @@ public class ComprasPanel extends javax.swing.JPanel {
             er.msj.setText("FALTAN LLENAR CANTIDAD EN GRAMOS");
             er.msj1.setText("");
             er.setVisible(true);
-            this.cant_gr.requestFocus();
+            cant_gr.requestFocus();
         } else {
             try {
                 double totalx = Math.round(Double.parseDouble(precio_so.getText()) * Double.parseDouble(cant_gr.getText()) * 100.0) / 100.0;
@@ -1007,16 +1000,15 @@ public class ComprasPanel extends javax.swing.JPanel {
 
     private void nombresKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombresKeyReleased
         // TODO add your handling code here:
-        //paintTable(this.nombres.getText());
         paintList(nombres.getText());
-        this.pid.setText("");
+        prove_id.setText("");
     }//GEN-LAST:event_nombresKeyReleased
 
     private void myJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myJListMouseClicked
-        //List<String> tem = myJList.getSelectedValuesList();
+        
         if (myJList.getSelectedIndex() != -1) {
             nombres.setText(myJList.getSelectedValue());
-            pid.setText(defaultListModel.getElementAt(myJList.getSelectedIndex()).getId() + "");
+            prove_id.setText(defaultListModel.getElementAt(myJList.getSelectedIndex()).getId() + "");
         }
 
     }//GEN-LAST:event_myJListMouseClicked
@@ -1028,7 +1020,6 @@ public class ComprasPanel extends javax.swing.JPanel {
             er.msj.setText("FALTAN LLENAR CAMPOS DE LOS PARÁMETROS");
             er.msj1.setText("");
             er.setVisible(true);
-
         } else {
             Parametro p = new Parametro();
             p.setId(1);
@@ -1046,15 +1037,13 @@ public class ComprasPanel extends javax.swing.JPanel {
                 sa.msj1.setText("EN PARÁMETRO");
                 sa.setVisible(true);
                 paintParams(1);
-                //total.setText(String.format(Locale.FRANCE, "%8.3f", myNumber));
-
+                
                 if (!cant_gr.getText().equals("")) {
                     try {
                         if (pagar_soles.isSelected()) {
                             precio.setText(precio_so.getText());
                             double totalx = Math.round(Double.parseDouble(precio_so.getText()) * Double.parseDouble(cant_gr.getText()) * 100.0) / 100.0;
                             total.setText(new DecimalFormat(Config.DEFAULT_DECIMAL_STRING_FORMAT).format(totalx));
-
                         } else {
                             precio.setText(precio_do.getText());
                             double totalx = Math.round(Double.parseDouble(precio_do.getText()) * Double.parseDouble(cant_gr.getText()) * 100.0) / 100.0;
@@ -1067,11 +1056,8 @@ public class ComprasPanel extends javax.swing.JPanel {
                 }
                 saldo_porpagar.setText("");
                 pagado.setText("");
-
             }
-
         }
-
     }//GEN-LAST:event_aSIconButton1ActionPerformed
 
     private void precio_soActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precio_soActionPerformed
@@ -1082,8 +1068,6 @@ public class ComprasPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (!cant_gr.getText().equals("")) {
             try {
-                //String decimalform = total.getText().replaceAll(",", "");
-                //System.out.println("decimalform: " + decimalform);
                 double pagadox = Double.parseDouble(total.getText().replaceAll(",", "")) - Double.parseDouble(saldo_porpagar.getText().replaceAll(",", ""));
                 pagado.setText(new DecimalFormat(Config.DEFAULT_DECIMAL_STRING_FORMAT).format(pagadox) + "");
             } catch (NumberFormatException nfe) {
@@ -1091,8 +1075,6 @@ public class ComprasPanel extends javax.swing.JPanel {
                 cant_gr_validate.setText("Número no válido");
             }
         }
-
-
     }//GEN-LAST:event_saldo_porpagarKeyReleased
 
     private void cant_grKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cant_grKeyReleased
@@ -1104,16 +1086,10 @@ public class ComprasPanel extends javax.swing.JPanel {
                     precio.setText(precio_so.getText());
                     double totalx = Math.round(Double.parseDouble(precio_so.getText()) * Double.parseDouble(cant_gr.getText()) * 100.0) / 100.0;
                     total.setText(new DecimalFormat(Config.DEFAULT_DECIMAL_STRING_FORMAT).format(totalx));
-
-                    //double pagadox = totalx - Double.parseDouble(saldo_porpagar.getText());
-                    //pagado.setText( pagadox+"" );
                 } else {
                     precio.setText(precio_do.getText());
                     double totalx = Math.round(Double.parseDouble(precio_do.getText()) * Double.parseDouble(cant_gr.getText()) * 100.0) / 100.0;
                     total.setText(new DecimalFormat(Config.DEFAULT_DECIMAL_STRING_FORMAT).format(totalx));
-
-                    //double pagadox = totalx - Double.parseDouble(saldo_porpagar.getText());
-                    //pagado.setText( pagadox+"" );
                     pagar_dolares.setSelected(true);
                 }
                 saldo_porpagar.setText("");
@@ -1133,6 +1109,10 @@ public class ComprasPanel extends javax.swing.JPanel {
             evt.consume();
         }
     }//GEN-LAST:event_cant_grKeyTyped
+
+    private void fechaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fechaKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1180,11 +1160,11 @@ public class ComprasPanel extends javax.swing.JPanel {
     private javax.swing.ButtonGroup pagarGroup;
     private javax.swing.JRadioButton pagar_dolares;
     private javax.swing.JRadioButton pagar_soles;
-    private javax.swing.JLabel pid;
     private javax.swing.JTextField porc;
     private javax.swing.JTextField precio;
     private javax.swing.JTextField precio_do;
     private javax.swing.JTextField precio_so;
+    private javax.swing.JLabel prove_id;
     private javax.swing.JFormattedTextField saldo_porpagar;
     private javax.swing.JTextField sistema;
     public static javax.swing.JTable tabla;
