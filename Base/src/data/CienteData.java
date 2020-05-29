@@ -1,5 +1,6 @@
 package data;
 
+
 import entites.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
